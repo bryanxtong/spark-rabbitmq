@@ -15,7 +15,7 @@
  */
 package org.apache.spark.streaming.rabbitmq;
 
-import com.rabbitmq.client.QueueingConsumer.Delivery;
+import com.rabbitmq.client.Delivery;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.streaming.Duration;

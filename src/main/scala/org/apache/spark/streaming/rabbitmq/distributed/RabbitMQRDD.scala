@@ -17,14 +17,14 @@ package org.apache.spark.streaming.rabbitmq.distributed
 
 import akka.actor.ActorSystem
 import com.rabbitmq.client.ConsumerCancelledException
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import com.typesafe.config.ConfigFactory
 import org.apache.spark.internal.Logging
 import org.apache.spark.partial.{BoundedDouble, CountEvaluator, PartialResult}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.rabbitmq.consumer.Consumer
 import org.apache.spark.streaming.rabbitmq.consumer.Consumer._
-import org.apache.spark.util.{LongAccumulator, NextIterator, Utils}
+import org.apache.spark.util.{LongAccumulator, NextIterator, TaskCompletionListener, Utils}
 import org.apache.spark.{Partition, SparkContext, SparkException, TaskContext}
 
 import scala.collection.JavaConversions._
@@ -150,7 +150,7 @@ class RabbitMQRDD[R: ClassTag](
     import system.dispatcher
 
     //Listener for control the shutdown process when the tasks are interrupted
-    context.addTaskCompletionListener(context => {
+    context.addTaskCompletionListener[Unit](context => {
       if (context.isInterrupted()) {
         RabbitMQRDD.shutDownActorSystem()
         log.info(s"Task interrupted, closing RabbitMQ connections in partition: ${part.index}")

@@ -17,7 +17,7 @@ package org.apache.spark.streaming.rabbitmq
 
 import java.util.{List => JList, Map => JMap}
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import org.apache.spark.api.java.function.{Function => JFunction}
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.api.java.{JavaInputDStream, JavaReceiverInputDStream, JavaStreamingContext}

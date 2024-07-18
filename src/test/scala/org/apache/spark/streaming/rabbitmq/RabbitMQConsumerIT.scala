@@ -18,7 +18,7 @@ package org.apache.spark.streaming.rabbitmq
 import java.util.UUID
 
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
+import org.scalatestplus.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class RabbitMQConsumerIT extends TemporalDataSuite {

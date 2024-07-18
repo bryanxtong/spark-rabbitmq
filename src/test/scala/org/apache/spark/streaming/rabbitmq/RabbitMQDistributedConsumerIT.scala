@@ -17,11 +17,11 @@ package org.apache.spark.streaming.rabbitmq
 
 import java.util.UUID
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import org.apache.spark.streaming.rabbitmq.distributed.RabbitMQDistributedKey
 import org.apache.spark.streaming.rabbitmq.models.ExchangeAndRouting
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
+import org.scalatestplus.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class RabbitMQDistributedConsumerIT extends TemporalDataSuite {

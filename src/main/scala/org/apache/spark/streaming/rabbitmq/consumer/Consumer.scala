@@ -17,7 +17,7 @@ package org.apache.spark.streaming.rabbitmq.consumer
 
 import java.util.concurrent.ConcurrentHashMap
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import com.rabbitmq.client.{Connection, ConnectionFactory, _}
 import org.apache.spark.SparkException
 import org.apache.spark.internal.Logging

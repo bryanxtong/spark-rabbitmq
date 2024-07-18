@@ -15,7 +15,7 @@
  */
 package org.apache.spark.streaming.rabbitmq.distributed
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import org.apache.spark.internal.Logging
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.dstream.InputDStream

@@ -16,11 +16,11 @@
 package org.apache.spark.streaming.rabbitmq
 
 import org.apache.spark.internal.Logging
-import org.scalatest.FunSuite
-import org.scalatest.concurrent.{TimeLimitedTests, Timeouts}
+import org.scalatest.concurrent.{TimeLimitedTests, TimeLimits}
+import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.time.SpanSugar._
 
-private[rabbitmq] trait RabbitMQSuite extends FunSuite with Timeouts with Logging with TimeLimitedTests {
+private[rabbitmq] trait RabbitMQSuite extends AnyFunSuite with TimeLimits with Logging with TimeLimitedTests {
 
   val timeLimit = 1 minutes
 

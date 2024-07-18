@@ -76,15 +76,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <scala.version>2.11.8</scala.version>
-        <scala.binary.version>2.11</scala.binary.version>
-        <rabbitmq.version>3.6.6</rabbitmq.version>
-        <spark.version>2.2.0</spark.version>
-        <akka.version>2.5.3</akka.version>
-        <joda.version>2.8.2</joda.version>
-        <scalatest.version>2.2.2</scalatest.version>
+        <scala.version>2.12.18</scala.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <rabbitmq.version>5.21.0</rabbitmq.version>
+        <spark.version>3.5.1</spark.version>
+        <akka.version>2.8.5</akka.version>
+        <joda.version>2.12.5</joda.version>
+        <scalatest.version>3.2.19</scalatest.version>
         <junit.version>4.8.1</junit.version>
-        <scala.check.version>1.11.3</scala.check.version>
+        <scala.check.version>1.18.0</scala.check.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -121,9 +123,10 @@
             <artifactId>joda-time</artifactId>
             <version>${joda.version}</version>
         </dependency>
+        <!--java.lang.NoClassDefFoundError: scala/Product$class as there is no amqp-client_2.12 version-->
         <dependency>
             <groupId>com.github.sstone</groupId>
-            <artifactId>amqp-client_${scala.binary.version}</artifactId>
+            <artifactId>amqp-client_2.11</artifactId>
             <version>1.5</version>
             <scope>test</scope>
         </dependency>
@@ -140,9 +143,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.scalatestplus</groupId>
+            <artifactId>junit-4-13_${scala.binary.version}</artifactId>
+            <version>3.2.19.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -165,7 +174,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.8</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -211,7 +220,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -224,7 +233,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.2</version>
+                <version>3.4.2</version>
                 <executions>
                     <execution>
                         <goals>

@@ -15,7 +15,7 @@
  */
 package org.apache.spark.streaming.rabbitmq.receiver
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import com.rabbitmq.client.Delivery
 import com.rabbitmq.client._
 import org.apache.spark.internal.Logging
 import org.apache.spark.storage.StorageLevel
@@ -24,6 +24,7 @@ import org.apache.spark.streaming.dstream.ReceiverInputDStream
 import org.apache.spark.streaming.rabbitmq.ConfigParameters
 import org.apache.spark.streaming.rabbitmq.consumer.Consumer
 import org.apache.spark.streaming.rabbitmq.consumer.Consumer._
+import org.apache.spark.streaming.rabbitmq.consumer.QueueingConsumer
 import org.apache.spark.streaming.receiver.Receiver
 
 import scala.reflect.ClassTag
